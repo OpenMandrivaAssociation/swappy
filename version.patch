@@ -1,0 +1,23 @@
+diff -Nur swappy-1.8.0.og/meson.build swappy-1.8.0/meson.build
+--- swappy-1.8.0.og/meson.build	2025-08-27 15:34:53.000000000 -0400
++++ swappy-1.8.0/meson.build	2025-10-07 15:50:47.640097691 -0400
+@@ -12,18 +12,7 @@
+ )
+ 
+ version = '"@0@"'.format(meson.project_version())
+-git = find_program('git', native: true, required: false)
+-if git.found()
+-	git_commit = run_command([git, 'rev-parse', '--short', 'HEAD'], check:true)
+-	git_branch = run_command([git, 'rev-parse', '--abbrev-ref', 'HEAD'], check:true)
+-	if git_commit.returncode() == 0 and git_branch.returncode() == 0
+-		version = '"@0@-@1@ (" __DATE__ ", branch \'@2@\')"'.format(
+-			meson.project_version(),
+-			git_commit.stdout().strip(),
+-			git_branch.stdout().strip(),
+-		)
+-	endif
+-endif
++
+ add_project_arguments('-DSWAPPY_VERSION=@0@'.format(version), language: 'c')
+ 
+ add_project_arguments('-Wno-unused-parameter', language: 'c')
