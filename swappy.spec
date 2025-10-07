@@ -11,6 +11,7 @@ Group:		Window Manager/Utility
 
 BuildRequires: meson
 BuildRequires: scdoc
+BuildRequires: gettext
 BuildRequires: pkgconfig(gtk+-3.0)
 BuildRequires: pkgconfig(cairo)
 BuildRequires: pkgconfig(pango)
